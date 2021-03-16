@@ -2,6 +2,7 @@
 
 @section('main')
 
+
 <div class="row mb-3 col-md-12" style="justify-content: flex-end;">
     <div class="">
         <a href="#">
@@ -101,7 +102,7 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
         <div class="card">
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0" style="height: 100%;">
@@ -170,8 +171,6 @@
             </div>
             <!-- /.card-body -->
         </div>
-        <!-- /.card -->
     </div>
-</div>
 
-@endsection
+    @endsection

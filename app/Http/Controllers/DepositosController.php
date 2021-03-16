@@ -25,46 +25,48 @@ class DepositosController extends Controller
     {
 
         $opts = array(
-            'http'=>array(
-              'method'=>"GET",
-              'header'=>"X-API-KEY: 94632FD5DFC74A2E9CB7DF66B41EA7FB"
+            'http' => array(
+                'method' => "GET",
+                'header' => "X-API-KEY: " . auth()->user()->safe2pay_token
             )
-          );
-          
-          $context = stream_context_create($opts);
-          
-          $result = file_get_contents('https://api.safe2pay.com.br/v2/CheckingAccount/GetListDeposits?month=12&year=2021', false, $context);
-          
-          if ($result === FALSE) { /* Handle error */ }
-          
-        //   var_dump($result);
+        );
 
-        $dpconfirmado = 0;
-        $dppendente = 0;
-        $dptotais = 0;
+        $context = stream_context_create($opts);
 
-        foreach(json_decode($result)->ResponseDetail->Deposits as $Deposit)
-        {
-            if($Deposit->IsTransferred)
+        $result = file_get_contents('https://api.safe2pay.com.br/v2/CheckingAccount/GetListDeposits?month=3&year=2021', false, $context);
+
+        if ($result === FALSE) { /* Handle error */
+        }
+
+        // var_dump(json_decode($result)->ResponseDetail);
+
+        $data = [];
+
+        foreach (json_decode($result)->ResponseDetail->Deposits as $key => $deposito) {
+            if ($deposito->IsTransferred) {
+                $data[$key] = [
+                    "title" => "".$deposito->Message . ", R$ " . str_replace(".", ",", $deposito->Amount) . " Pagamento de numero: " . $deposito->PaymentNumber,
+                    "allDay" => true,
+                    "start" => $deposito->DepositDate,
+                    "url" => $deposito->HashConfirmation,
+                    "display" => 'list-item'
+                ];
+            } else
             {
-                if($Deposit->HashConfirmation != null)
-                {
-                    $dpconfirmado += $Deposit->Amount;
-                }
-                else
-                {
-                    $dppendente += $Deposit->Amount;
-                }
-
-                $dptotais++;
+                $data[$key] = [
+                    "title" => $deposito->Message,
+                    "allDay" => true,
+                    "start" => $deposito->DepositDate
+                ];
             }
         }
 
+        // var_dump();
+
         return view('depositos', [
             'result' => json_decode($result),
-            'dpconfirmado' => $dpconfirmado,
-            'dppendente' => $dppendente,
-            'dptotais' => $dptotais,
+            'initialDate' => date('Y-m-d', strtotime(str_replace("/", "-", json_decode($result)->ResponseDetail->InitialDate))),
+            'depositos' => $data
         ]);
     }
 }

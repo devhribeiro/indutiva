@@ -5,9 +5,6 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Dados bancários</h3>
-            </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
@@ -21,7 +18,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         <tr>
                             <td>{{$result->ResponseDetail->Bank}}</td>
                             <td>{{$result->ResponseDetail->Agency}}-{{$result->ResponseDetail->AgencyDigit}}</td>

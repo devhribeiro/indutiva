@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DadosBancariosController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,7 @@ class DadosBancariosController extends Controller
      */
     public function index()
     {
+        $today = date("Y-m-d");
 
         $opts = array(
             'http'=>array(
@@ -31,14 +32,12 @@ class DadosBancariosController extends Controller
             )
           );
 
-          $context = stream_context_create($opts);
+        $context = stream_context_create($opts);
+        $result = file_get_contents("https://api.safe2pay.com.br/v2/Customer/List", false, $context);
+        if ($result === FALSE) { /* Handle error */ }
 
-          $result = file_get_contents('https://api.safe2pay.com.br/v2/MerchantBankData/Get', false, $context);
-
-          if ($result === FALSE) { /* Handle error */ }
-
-        //   var_dump($result);
-
-        return view('dados-bancarios', ['result' => json_decode($result)]);
+        return view('clientes', [
+            'result' => json_decode($result)
+        ]);
     }
 }

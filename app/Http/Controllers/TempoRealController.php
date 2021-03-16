@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TransacoesController extends Controller
+class TempoRealController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,7 @@ class TransacoesController extends Controller
      */
     public function index()
     {
+        $today = date("Y-m-d");
 
         $opts = array(
             'http'=>array(
@@ -32,7 +33,7 @@ class TransacoesController extends Controller
           );
 
         $context = stream_context_create($opts);
-        $result = file_get_contents("https://api.safe2pay.com.br/v2/Transaction/List?PageNumber=1&RowsPerPage=1000", false, $context);
+        $result = file_get_contents("https://api.safe2pay.com.br/v2/Transaction/List?PageNumber=1&RowsPerPage=1000&CreatedDateInitial=".$today."&CreatedDateEnd=".$today, false, $context);
         if ($result === FALSE) { /* Handle error */ }
 
         $pgconfirmado = 0;
@@ -59,7 +60,7 @@ class TransacoesController extends Controller
 
         }
 
-        return view('transacoes', [
+        return view('tempo-real', [
             'result' => json_decode($result),
             'pgconfirmado' => str_replace('.', ',', $pgconfirmado),
             'pgpendente' => str_replace('.', ',', $pgpendente),

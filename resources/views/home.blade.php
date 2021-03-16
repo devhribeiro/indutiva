@@ -6,11 +6,11 @@
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-            
+
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
-            
+
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ url('home') }}" class="nav-link">Inicio</a>
             </li>
@@ -23,7 +23,7 @@
             </li>
         </ul>
 
-        
+
     </nav>
     <!-- /.navbar -->
 
@@ -44,7 +44,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                     <li class="nav-header"></li>
-                    
+
                     <li class="nav-item menu-open">
                         <a href="{{ url('home') }}" class="nav-link">
                             <i class="nav-icon fas fa-home"></i>
@@ -66,24 +66,30 @@
                         </a>
 
                         <ul class="nav nav-treeview">
-                            <a href="{{ url('transacoes') }}" class="nav-link">
-                                <i class="nav-icon fas fa-fire"></i>
-                                <p>
-                                    Tempo Real
-                                </p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('tempo-real') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-fire"></i>
+                                    <p>
+                                        Tempo Real
+                                    </p>
+                                </a>
+                            </li>
 
-                            <a href="{{ url('transacoes') }}" class="nav-link">
-                                <i class="nav-icon fas fa-exchange-alt"></i>
-                                <p>
-                                    Transações
-                                </p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('transacoes') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-exchange-alt"></i>
+                                    <p>
+                                        Transações
+                                    </p>
+                                </a>
+                            </li>
 
-                            <a href="{{ url('clientes') }}" class="nav-link">
-                                <i class="far fa-address-book nav-icon"></i>
-                                <p>Clientes</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('clientes') }}" class="nav-link">
+                                    <i class="far fa-address-book nav-icon"></i>
+                                    <p>Clientes</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -97,19 +103,23 @@
                         </a>
 
                         <ul class="nav nav-treeview">
-                            <a href="{{ url('depositos') }}" class="nav-link">
-                                <i class="fas fa-wallet nav-icon"></i>
-                                <p>Conta Corrente</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('depositos') }}" class="nav-link">
+                                    <i class="fas fa-wallet nav-icon"></i>
+                                    <p>Conta Corrente</p>
+                                </a>
+                            </li>
 
-                            <a href="{{ url('dados-bancarios') }}" class="nav-link">
-                                <i class="fas fa-money-check-alt nav-icon"></i>
-                                <p>Dados bancários</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('dados-bancarios') }}" class="nav-link">
+                                    <i class="fas fa-money-check-alt nav-icon"></i>
+                                    <p>Dados bancários</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-credit-card nav-icon"></i>
                             <p>
@@ -119,15 +129,19 @@
                         </a>
 
                         <ul class="nav nav-treeview">
-                            <a href="{{ url('dados-bancarios') }}" class="nav-link">
-                                <i class="fas fa-money-check-alt nav-icon"></i>
-                                <p>Cobrança</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('dados-bancarios') }}" class="nav-link">
+                                    <i class="fas fa-money-check-alt nav-icon"></i>
+                                    <p>Cobrança</p>
+                                </a>
+                            </li>
 
-                            <a href="{{ url('depositos') }}" class="nav-link">
-                                <i class="fas fa-piggy-bank nav-icon"></i>
-                                <p>Carnê</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('depositos') }}" class="nav-link">
+                                    <i class="fas fa-piggy-bank nav-icon"></i>
+                                    <p>Carnê</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -141,51 +155,60 @@
                         </a>
 
                         <ul class="nav nav-treeview">
-                            <a href="{{ url('dados-bancarios') }}" class="nav-link">
-                                <i class="fas fa-money-check-alt nav-icon"></i>
-                                <p>Planos</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('dados-bancarios') }}" class="nav-link">
+                                    <i class="fas fa-money-check-alt nav-icon"></i>
+                                    <p>Planos</p>
+                                </a>
+                            </li>
 
-                            <a href="{{ url('depositos') }}" class="nav-link">
-                                <i class="fas fa-piggy-bank nav-icon"></i>
-                                <p>Assinaturas</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('depositos') }}" class="nav-link">
+                                    <i class="fas fa-piggy-bank nav-icon"></i>
+                                    <p>Assinaturas</p>
+                                </a>
+                            </li>
 
-                            <a href="{{ url('depositos') }}" class="nav-link">
-                                <i class="fas fa-piggy-bank nav-icon"></i>
-                                <p>Recorrência</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('depositos') }}" class="nav-link">
+                                    <i class="fas fa-piggy-bank nav-icon"></i>
+                                    <p>Recorrência</p>
+                                </a>
+                            </li>
 
-                            <a href="{{ url('depositos') }}" class="nav-link">
-                                <i class="fas fa-piggy-bank nav-icon"></i>
-                                <p>Gerenciamento de Recorrência</p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ url('depositos') }}" class="nav-link">
+                                    <i class="fas fa-piggy-bank nav-icon"></i>
+                                    <p>Gerenciamento de Recorrência</p>
+                                </a>
+                            </li>
                         </ul>
-                    </li>
+                    </li> -->
 
 
                     <li class="nav-header"></li>
-                    
-                    <li class="nav-item">
 
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-cogs nav-icon"></i>
-                            <p>
-                                Configurações
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-
-                        <ul class="nav nav-treeview">
-                            <a href="{{url('usuarios')}}" class="nav-link">
-                                <i class="fas fa-user nav-icon"></i>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-cogs nav-icon"></i>
                                 <p>
-                                    Usuarios
+                                    Configurações
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                            
-                        </ul>
-                    </li>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{url('usuarios')}}" class="nav-link">
+                                        <i class="fas fa-user nav-icon"></i>
+                                        <p>
+                                            Usuarios
+                                        </p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
 
                 </ul>
             </nav>
@@ -205,7 +228,7 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    
+
                     <div class="col-lg-12">
 
                         @yield('main')

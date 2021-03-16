@@ -23,7 +23,9 @@ Route::group(['middleware' => 'web'], function(){
 
     //Rotas
     Route::get('/home', [App\Http\Controllers\PainelController::class, 'index'])->name('painel');
+    Route::get('/tempo-real', [App\Http\Controllers\TempoRealController::class, 'index'])->name('tempo-real');
     Route::get('/transacoes', [App\Http\Controllers\TransacoesController::class, 'index'])->name('transacoes');
+    Route::get('/clientes', [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes');
     Route::get('/dados-bancarios', [App\Http\Controllers\DadosBancariosController::class, 'index'])->name('dados-bancarios');
     Route::get('/depositos', [App\Http\Controllers\DepositosController::class, 'index'])->name('depositos');
     Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'index'])->name('usuarios');

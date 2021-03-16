@@ -20,9 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('safe2pay_token');
-            $table->string('safe2pay_seretkey');
+            $table->string('safe2pay_secretkey');
             $table->string('safe2pay_tokenSandbox');
             $table->string('safe2pay_secretSandbox');
+            $table->boolean('adminstrator')->notnull()->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
