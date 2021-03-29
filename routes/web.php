@@ -29,5 +29,6 @@ Route::group(['middleware' => 'web'], function(){
     Route::get('/dados-bancarios', [App\Http\Controllers\DadosBancariosController::class, 'index'])->name('dados-bancarios');
     Route::get('/depositos', [App\Http\Controllers\DepositosController::class, 'index'])->name('depositos');
     Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'index'])->name('usuarios');
-    Route::get('/registrar', [App\Http\Controllers\UsuariosController::class, 'register'])->name('registrar');
 });
+
+Route::get('/registrar', [App\Http\Controllers\UsuariosController::class, 'register'])->name('registrar');
